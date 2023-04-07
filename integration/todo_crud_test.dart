@@ -6,7 +6,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:flutter_todolist/main.dart' as app;
 import 'package:intl/intl.dart';
 
-void main(List<String> args) async {
+void todoCrudTest() async {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   setUpAll(() async {
@@ -106,9 +106,21 @@ void main(List<String> args) async {
       );
       expect(find.byKey(const Key('update-button')), findsOneWidget);
 
+      //clean input
+      await tester.enterText(
+        find.byKey(const Key('textfield-edit-name')),
+        '',
+      );
+
       await tester.enterText(
         find.byKey(const Key('textfield-edit-name')),
         'update my todo name',
+      );
+
+      //clean input
+      await tester.enterText(
+        find.byKey(const Key('textfield-edit-description')),
+        '',
       );
 
       await tester.enterText(

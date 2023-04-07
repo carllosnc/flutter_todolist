@@ -4,7 +4,7 @@ import 'package:flutter_todolist/data/local/database/local_database.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:flutter_todolist/main.dart' as app;
 
-void main(List<String> args) {
+void multipleEntriesTest() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   var items = Iterable<int>.generate(5).toList();
