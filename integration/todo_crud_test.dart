@@ -106,9 +106,21 @@ void todoCrudTest() async {
       );
       expect(find.byKey(const Key('update-button')), findsOneWidget);
 
+      //clean input
+      await tester.enterText(
+        find.byKey(const Key('textfield-edit-name')),
+        '',
+      );
+
       await tester.enterText(
         find.byKey(const Key('textfield-edit-name')),
         'update my todo name',
+      );
+
+      //clean input
+      await tester.enterText(
+        find.byKey(const Key('textfield-edit-description')),
+        '',
       );
 
       await tester.enterText(
