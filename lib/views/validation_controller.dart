@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-class PagesController {
-  static String fomatSchedule({String hour = '0', String minute = '0'}) {
+mixin ValidationController {
+  String fomatSchedule({String hour = '0', String minute = '0'}) {
     String formatedHour = hour.length == 1 ? '0$hour' : hour;
     String formatedMinute = minute.length == 1 ? '0$minute' : minute;
 
     return '$formatedHour:$formatedMinute';
   }
 
-  static String currentTime() {
+  String currentTime() {
     return fomatSchedule(
       hour: '${TimeOfDay.now().hour}',
       minute: '${TimeOfDay.now().minute}',
     );
   }
 
-  static String? validateName(String? value) {
+  String? validateName(String? value) {
     if (value == null || value.isEmpty) {
       return 'The name is required';
     }
@@ -31,7 +31,7 @@ class PagesController {
     return null;
   }
 
-  static String? validateDescription(String? value) {
+  String? validateDescription(String? value) {
     if (value == null || value.isEmpty) {
       return 'The description is required';
     }

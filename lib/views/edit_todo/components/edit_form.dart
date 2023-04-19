@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import '/data/data.dart';
 import '/views/views.dart';
 
@@ -13,7 +12,7 @@ class EditTodoForm extends StatefulWidget {
   State<EditTodoForm> createState() => _EditTodoFormState();
 }
 
-class _EditTodoFormState extends State<EditTodoForm> {
+class _EditTodoFormState extends State<EditTodoForm> with ValidationController {
   final _formKey = GlobalKey<FormState>();
 
   final TodoService _todoService = TodoService();
@@ -57,7 +56,7 @@ class _EditTodoFormState extends State<EditTodoForm> {
               TextFormField(
                 key: const Key('textfield-edit-name'),
                 controller: _nameController,
-                validator: PagesController.validateName,
+                validator: validateName,
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.edit),
                   label: Text('Todo name'),
@@ -67,7 +66,7 @@ class _EditTodoFormState extends State<EditTodoForm> {
               TextFormField(
                 key: const Key('textfield-edit-description'),
                 controller: _descriptionController,
-                validator: PagesController.validateDescription,
+                validator: validateDescription,
                 maxLines: null,
                 keyboardType: TextInputType.multiline,
                 decoration: const InputDecoration(

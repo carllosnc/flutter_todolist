@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'new_todo_controller.dart';
-
 import '/views/views.dart';
 
 class NewTodoPage extends StatefulWidget {
@@ -10,7 +9,8 @@ class NewTodoPage extends StatefulWidget {
   State<NewTodoPage> createState() => _NewTodoPageState();
 }
 
-class _NewTodoPageState extends State<NewTodoPage> with NewTodoController {
+class _NewTodoPageState extends State<NewTodoPage>
+    with NewTodoController, ValidationController {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _NewTodoPageState extends State<NewTodoPage> with NewTodoController {
               TextFormField(
                 key: const Key('name_input'),
                 controller: nameController,
-                validator: PagesController.validateName,
+                validator: validateName,
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.edit),
                   label: Text('Todo name'),
@@ -35,7 +35,7 @@ class _NewTodoPageState extends State<NewTodoPage> with NewTodoController {
               TextFormField(
                 key: const Key('description_input'),
                 controller: descriptionController,
-                validator: PagesController.validateDescription,
+                validator: validateDescription,
                 maxLines: null,
                 keyboardType: TextInputType.multiline,
                 decoration: const InputDecoration(
